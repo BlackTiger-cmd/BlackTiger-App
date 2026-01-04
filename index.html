@@ -118,23 +118,24 @@
 
 <div class="container">
     <div class="tiger-frame">
-        <!-- صورة وجه نمر حقيقي [صورة نمر حقيقي] -->
+        <!-- [صورة نمر حقيقي] -->
         <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" 
              onerror="this.src='https://images.unsplash.com/photo-1555273334-34c725185a3c?q=80&w=800&auto=format&fit=crop'"
-             alt="نمر حقيقي">
+             alt="Black Tiger">
     </div>
     
     <h1>BLACK TIGER</h1>
-    <!-- النص المعدل كما طلبت -->
+    <!-- النص المحدث -->
     <p class="subtitle">أهلاً بك في تطبيق الخدمات الأقوى</p>
 
     <div id="loading-section">
         <div class="progress-bg">
             <div id="bar" class="progress-bar"></div>
         </div>
-        <div id="msg" class="status-text">بدء... 0%</div>
+        <div id="msg" class="status-text">جاري البدء... 0%</div>
     </div>
     
+    <!-- الزر مع النص المطلوب -->
     <button id="main-btn" class="btn" onclick="startUpdate()">تحميل / تحديث الآن</button>
     
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
@@ -154,8 +155,9 @@
         let timer = setInterval(() => {
             if (progress >= 100) {
                 clearInterval(timer);
-                msg.innerHTML = "اكتمل! جاري التحميل...";
+                msg.innerHTML = "تم الاكتمال! جاري التحميل...";
                 setTimeout(() => {
+                    // سيقوم بتحميل ملف الـ APK
                     window.location.href = "BlackTiger.apk";
                 }, 1000);
             } else {
