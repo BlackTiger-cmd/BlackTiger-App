@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Black Tiger | تحميل / تحديث</title>
-    <!-- خط Cairo العربي -->
+    <!-- خط Cairo العربي الاحترافي -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,6 +18,7 @@
             min-height: 100vh;
             color: #fff;
             margin: 0;
+            overflow-x: hidden;
         }
 
         .container {
@@ -27,16 +28,16 @@
             text-align: center;
         }
 
-        /* حاوية الصورة مع رابط بديل لضمان الظهور */
+        /* إطار صورة وجه النمر */
         .tiger-frame {
             width: 100%;
             height: 250px;
-            border-radius: 25px;
+            border-radius: 30px;
             overflow: hidden;
             margin-bottom: 25px;
             border: 2px solid #ff8c00;
-            box-shadow: 0 0 20px rgba(255, 140, 0, 0.3);
-            background: #111; /* خلفية مؤقتة حتى تحمل الصورة */
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            background: #111;
         }
 
         .tiger-frame img {
@@ -47,19 +48,21 @@
         }
 
         h1 {
-            font-size: 34px;
+            font-size: 36px;
             color: #ff8c00;
             font-weight: 900;
             margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
         }
 
         .subtitle {
             color: #888;
-            font-size: 16px;
-            margin-bottom: 30px;
+            font-size: 17px;
+            margin-bottom: 35px;
+            font-weight: 700;
         }
 
-        /* منطقة التحميل */
+        /* نظام شريط التحميل */
         #loading-section {
             display: none;
             margin-bottom: 25px;
@@ -68,49 +71,70 @@
         .progress-bg {
             width: 100%;
             background: #222;
-            height: 12px;
-            border-radius: 10px;
+            height: 14px;
+            border-radius: 20px;
             overflow: hidden;
+            border: 1px solid #333;
         }
 
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: #ff8c00;
+            background: linear-gradient(90deg, #ff8c00, #ff4500);
+            box-shadow: 0 0 15px #ff8c00;
             transition: width 0.3s ease;
         }
 
         .status-text {
             color: #ff8c00;
-            font-size: 14px;
-            margin-top: 10px;
-            font-weight: bold;
+            font-size: 15px;
+            margin-top: 12px;
+            font-weight: 900;
         }
 
         /* الزر الرئيسي */
         .btn {
-            background: #ff8c00;
-            color: #000;
+            background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%);
+            color: #fff;
             text-decoration: none;
             font-size: 22px;
             font-weight: 900;
-            padding: 18px;
-            border-radius: 15px;
+            padding: 20px;
+            border-radius: 20px;
             display: block;
             border: none;
             width: 100%;
             cursor: pointer;
-            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+            box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4);
+            transition: transform 0.2s;
         }
 
         .btn:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
+        }
+
+        /* ملاحظة الأمان (متحضرة وبنفس روح الكود) */
+        .safety-note {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #aaa;
+            line-height: 1.6;
+            background: rgba(255, 140, 0, 0.05);
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #222;
+        }
+
+        .safety-note span {
+            color: #ff8c00;
+            font-weight: 900;
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 40px;
             color: #333;
             font-size: 12px;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -125,18 +149,21 @@
     </div>
     
     <h1>BLACK TIGER</h1>
-    <!-- النص المحدث -->
     <p class="subtitle">أهلاً بك في تطبيق الخدمات الأقوى</p>
 
     <div id="loading-section">
         <div class="progress-bg">
             <div id="bar" class="progress-bar"></div>
         </div>
-        <div id="msg" class="status-text">جاري البدء... 0%</div>
+        <div id="msg" class="status-text">جاري تحضير الملف... 0%</div>
     </div>
     
-    <!-- الزر مع النص المطلوب -->
     <button id="main-btn" class="btn" onclick="startUpdate()">تحميل / تحديث الآن</button>
+
+    <!-- الملاحظة المتحضرة -->
+    <div class="safety-note">
+        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد لعدم توفر التطبيق على متجر بلاي. يمكنك إتمام التثبيت بكل طمأنينة.
+    </div>
     
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
 </div>
@@ -155,18 +182,18 @@
         let timer = setInterval(() => {
             if (progress >= 100) {
                 clearInterval(timer);
-                msg.innerHTML = "تم الاكتمال! جاري التحميل...";
+                msg.innerHTML = "اكتمل! جاري بدء التحميل...";
                 setTimeout(() => {
-                    // سيقوم بتحميل ملف الـ APK
+                    // الربط بملف الـ APK الذي سترفعه
                     window.location.href = "BlackTiger.apk";
                 }, 1000);
             } else {
-                progress += Math.floor(Math.random() * 10) + 2;
+                progress += Math.floor(Math.random() * 8) + 2;
                 if (progress > 100) progress = 100;
                 bar.style.width = progress + '%';
-                msg.innerHTML = "جاري التحديث... " + progress + "%";
+                msg.innerHTML = "جاري تحديث بيانات النمر... " + progress + "%";
             }
-        }, 300);
+        }, 250);
     }
 </script>
 
