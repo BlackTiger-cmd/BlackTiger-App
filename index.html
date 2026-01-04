@@ -1,109 +1,180 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Black Tiger | تحميل وتحديث</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        font-family: 'Cairo', sans-serif;
-        background: radial-gradient(circle at center, #1a1f2b 0%, #0d1117 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        color: #fff;
-    }
-    .card {
-        background: #161b22;
-        width: 92%;
-        max-width: 400px;
-        padding: 40px 20px;
-        border-radius: 35px;
-        text-align: center;
-        border: 2px solid #58a6ff;
-        box-shadow: 0 25px 50px rgba(0,0,0,0.8);
-        position: relative;
-        overflow: hidden;
-    }
-    /* لوجو برمجيا بدون صورة */
-    .icon-box {
-        width: 100px;
-        height: 100px;
-        background: linear-gradient(135deg, #58a6ff, #1f6feb);
-        border-radius: 25px;
-        margin: 0 auto 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 50px;
-        box-shadow: 0 10px 20px rgba(88, 166, 255, 0.3);
-        border: 3px solid #fff;
-    }
-    h1 {
-        font-size: 30px;
-        margin-bottom: 10px;
-        color: #58a6ff;
-        letter-spacing: 1px;
-    }
-    p {
-        font-size: 17px;
-        color: #8b949e;
-        margin-bottom: 35px;
-        line-height: 1.6;
-    }
-    .btn {
-        background: linear-gradient(135deg, #58a6ff 0%, #1f6feb 100%);
-        color: #fff;
-        text-decoration: none;
-        font-size: 20px;
-        font-weight: 900;
-        padding: 20px;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        transition: 0.3s;
-        box-shadow: 0 10px 20px rgba(31, 111, 235, 0.3);
-        width: 100%;
-    }
-    .btn:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 15px 30px rgba(31, 111, 235, 0.5);
-    }
-    .btn:active {
-        transform: translateY(0);
-    }
-    .btn i { font-size: 24px; }
-    .footer {
-        margin-top: 25px;
-        font-size: 12px;
-        color: #484f58;
-        letter-spacing: 1px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Tiger | تحميل / تحديث</title>
+    <!-- استدعاء خط Cairo ليعطي مظهراً احترافياً -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        /* تصفير المسافات الإفتراضية */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #000; /* خلفية سوداء ملكي */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff;
+            margin: 0;
+        }
+
+        /* حاوية البطاقة الرئيسية */
+        .card {
+            background: #111;
+            width: 90%;
+            max-width: 420px;
+            padding: 30px;
+            border-radius: 40px;
+            text-align: center;
+            border: 2px solid #ff8c00; /* حدود برتقالية بلون النمر */
+            box-shadow: 0 20px 60px rgba(255, 140, 0, 0.2);
+        }
+
+        /* إطار صورة نمر الغابة */
+        .tiger-frame {
+            width: 100%;
+            height: 220px;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 2px solid #ff8c00;
+        }
+
+        .tiger-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            font-size: 32px;
+            color: #ff8c00;
+            margin-bottom: 10px;
+            font-weight: 900;
+        }
+
+        p { color: #aaa; margin-bottom: 30px; font-size: 16px; }
+
+        /* منطقة شريط التحميل */
+        #loader-container {
+            display: none; /* مخفي حتى يتم الضغط على الزر */
+            margin-bottom: 25px;
+        }
+
+        .progress-track {
+            width: 100%;
+            background: #222;
+            height: 18px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #333;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #ff8c00, #ff4500);
+            box-shadow: 0 0 10px #ff8c00;
+            transition: width 0.3s ease;
+        }
+
+        #progress-label {
+            color: #ff8c00;
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+            font-size: 14px;
+        }
+
+        /* الزر الرئيسي بالشرطة المائلة */
+        .action-btn {
+            background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%);
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: 900;
+            padding: 20px;
+            border-radius: 20px;
+            display: block;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(211, 84, 0, 0.4);
+            transition: 0.3s;
+        }
+
+        .action-btn:active {
+            transform: scale(0.96);
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 11px;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="icon-box">
-        <i class="fas fa-cat"></i>
+    <!-- صورة نمر حقيقي في الغابة -->
+    <div class="tiger-frame">
+        <img src="https://images.unsplash.com/photo-1549480017-d76466a4b7e8?q=80&w=800&auto=format&fit=crop" alt="Black Tiger Jungle">
     </div>
     
     <h1>BLACK TIGER</h1>
-    <p>أهلاً بك في منصة التحميل الرسمية.<br>اضغط أدناه للحصول على آخر تحديث.</p>
+    <p>أهلاً بك في تطبيق الخدمات الأقوى.</p>
 
-    <a href="Black Tiger.apk" download class="btn">
-        <i class="fas fa-cloud-download-alt"></i>
-        تحديث / تحميل الآن
-    </a>
-
-    <div class="footer">إصدار آمن 2026 © BLACK TIGER</div>
+    <!-- شريط التحميل التفاعلي -->
+    <div id="loader-container">
+        <div class="progress-track">
+            <div id="fill-bar" class="progress-fill"></div>
+        </div>
+        <span id="progress-label">جاري التحقق من الملفات... 0%</span>
+    </div>
+    
+    <!-- الزر المعدل كما طلبت -->
+    <button id="main-trigger" class="action-btn" onclick="handleAction()">تحميل / تحديث الآن</button>
+    
+    <div class="footer">BLACK TIGER OFFICIAL © 2026</div>
 </div>
+
+<script>
+    function handleAction() {
+        const btn = document.getElementById('main-trigger');
+        const container = document.getElementById('loader-container');
+        const bar = document.getElementById('fill-bar');
+        const label = document.getElementById('progress-label');
+
+        // إخفاء الزر وإظهار شريط التحميل
+        btn.style.display = 'none';
+        container.style.display = 'block';
+
+        let progress = 0;
+        const timer = setInterval(() => {
+            if (progress >= 100) {
+                clearInterval(timer);
+                label.innerHTML = "اكتمل التحديث! جاري التحميل...";
+                
+                // التوجيه لملف الـ APK بعد ثانية واحدة
+                setTimeout(() => {
+                    window.location.href = "BlackTiger.apk";
+                }, 1000);
+            } else {
+                // زيادة عشوائية لإعطاء تأثير تحميل واقعي
+                progress += Math.floor(Math.random() * 10) + 2;
+                if (progress > 100) progress = 100;
+                
+                bar.style.width = progress + '%';
+                label.innerHTML = "جاري تحميل بيانات النمر... " + progress + "%";
+            }
+        }, 250);
+    }
+</script>
 
 </body>
 </html>
+
