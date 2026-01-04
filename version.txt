@@ -1,1 +1,4 @@
-1.0
+{
+  "version": 1,
+  "update_url": "https://blacktiger-cmd.github.io/BlackTiger-App/"
+}
