@@ -3,153 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>تحميل تطبيق بلاك تايجر للخدمات المنزلية | Black Tiger App</title>
-
+    
     <meta name="application-name" content="بلاك تايجر للخدمات المنزلية">
-    <meta name="apple-mobile-web-app-title" content="بلاك تايجر">
-
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebSite",
-      "name": "بلاك تايجر للخدمات المنزلية",
-      "url": "https://blacktiger-cmd.github.io/BlackTiger-App/"
-    }
-    </script>
-
-    <meta name="description" content="بلاك تايجر للخدمات المنزلية: نوفر عمالة نظافة، طباخة، بيبي سيتر، جليسة مسنين، بواب، سواق، بواب وزوجته، جنايني، حارس عقار، وأي وظائف أخرى. اطلب خدمتك الآن.">
-    <meta name="keywords" content="نظافة، طباخة، بيبي سيتر، جليسة مسنين، بواب، سواق، بواب وزوجته، جنايني، حارس عقار، بلاك تايجر">
-
-    <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
+    <meta name="description" content="نوفر عمالة نظافة، طباخة، بيبي سيتر، والمزيد. اطلب خدمتك الآن.">
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
     
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cairo', sans-serif; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; overflow-x: hidden; }
+        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; }
+        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; }
+        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; }
+        h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
+        .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; }
         
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            color: #fff;
-            margin: 0;
-            overflow-x: hidden;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 400px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .tiger-frame {
-            width: 100%;
-            height: 250px;
-            border-radius: 30px;
-            overflow: hidden;
-            margin-bottom: 25px;
-            border: 2px solid #ff8c00;
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
-            background: #111;
-        }
-
-        .tiger-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        h1 {
-            font-size: 36px;
-            color: #ff8c00;
-            font-weight: 900;
-            margin-bottom: 5px;
-            text-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
-        }
-
-        .subtitle {
-            color: #888;
-            font-size: 17px;
-            margin-bottom: 35px;
-            font-weight: 700;
-        }
-
-        #loading-section {
-            display: none;
-            margin-bottom: 25px;
-        }
-
-        .progress-bg {
-            width: 100%;
-            background: #222;
-            height: 14px;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #333;
-        }
-
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background: linear-gradient(90deg, #ff8c00, #ff4500);
-            box-shadow: 0 0 15px #ff8c00;
-            transition: width 0.3s ease;
-        }
-
-        .status-text {
-            color: #ff8c00;
-            font-size: 15px;
-            margin-top: 12px;
-            font-weight: 900;
-        }
-
-        .btn {
-            background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%);
-            color: #fff;
-            text-decoration: none;
-            font-size: 22px;
-            font-weight: 900;
-            padding: 20px;
-            border-radius: 20px;
-            display: block;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4);
-            transition: transform 0.2s;
-        }
-
-        .btn:active {
-            transform: scale(0.97);
-        }
-
-        .safety-note {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #aaa;
-            line-height: 1.6;
-            background: rgba(255, 140, 0, 0.05);
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid #222;
-        }
-
-        .safety-note span {
-            color: #ff8c00;
-            font-weight: 900;
-        }
-
-        .footer {
-            margin-top: 40px;
-            color: #333;
-            font-size: 12px;
-            font-weight: bold;
-        }
+        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; text-decoration: none; font-size: 22px; font-weight: 900; padding: 18px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; margin-bottom: 15px; box-shadow: 0 8px 20px rgba(211, 84, 0, 0.3); }
+        .btn-secondary { background: #222; font-size: 16px; padding: 12px; border: 1px solid #444; color: #bbb; }
+        
+        /* تصميم صندوق التقييمات */
+        #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 1000; padding: 20px; overflow-y: auto; }
+        .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 15px; border-right: 4px solid #ff8c00; text-align: right; }
+        .review-card h4 { color: #ff8c00; margin-bottom: 5px; }
+        .review-card p { font-size: 14px; color: #ccc; }
+        .close-btn { background: #ff4500; color: white; padding: 10px 20px; border-radius: 10px; border: none; margin-top: 20px; cursor: pointer; }
+        
+        #loading-section { display: none; margin-bottom: 25px; }
+        .progress-bg { width: 100%; background: #222; height: 14px; border-radius: 20px; overflow: hidden; }
+        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ff8c00, #ff4500); transition: width 0.3s ease; }
     </style>
 </head>
 <body>
@@ -160,47 +42,60 @@
     </div>
     
     <h1>BLACK TIGER</h1>
-    <p class="subtitle">أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه التطبيق الأقوى فى السوق المصريه</p>
+    <p class="subtitle">تطبيق الخدمات المنزلية الأقوى في مصر</p>
 
     <div id="loading-section">
-        <div class="progress-bg">
-            <div id="bar" class="progress-bar"></div>
-        </div>
-        <div id="msg" class="status-text">جاري تحضير الملف... 0%</div>
+        <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
+        <div id="msg" style="color: #ff8c00; margin-top: 10px;">جاري تحضير الملف... 0%</div>
     </div>
     
     <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
+    <button class="btn btn-secondary" onclick="showReviews()">آراء العملاء والعمال ⭐</button>
 
-    <div class="safety-note">
-        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد لعدم توفر التطبيق على متجر بلاي. يمكنك إتمام التثبيت بكل طمأنينة.
-    </div>
+    <div class="footer" style="margin-top: 30px; color: #444; font-size: 12px;">OFFICIAL BLACK TIGER © 2026</div>
+</div>
+
+<div id="reviews-modal">
+    <h2 style="color: #ff8c00; margin-bottom: 20px;">ماذا يقولون عن بلاك تايجر؟</h2>
     
-    <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
+    <div class="review-card">
+        <h4>أحمد كمال (عميل)</h4>
+        <p>"خدمة ممتازة والعمالة محترمة جداً وأمانة، طلبت خدمة نظافة وجولي في الميعاد بالظبط."</p>
+    </div>
+    <div class="review-card">
+        <h4>أميرة محمد (عميلة)</h4>
+        <p>"البيبي سيتر اللي جتلي ممتازة وبنتي ارتاحت لها جداً، شكراً بلاك تايجر."</p>
+    </div>
+    <div class="review-card">
+        <h4>محمد جابر (عامل نظافة)</h4>
+        <p>"فخور إني شغال مع شركة بتقدر العمال وبتضمن لنا حقوقنا، أفضل تطبيق اشتغلت عليه."</p>
+    </div>
+
+    <button class="close-btn" onclick="hideReviews()">إغلاق</button>
 </div>
 
 <script>
+    function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
+    function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
+
     function startUpdate() {
         const btn = document.getElementById('main-btn');
         const section = document.getElementById('loading-section');
         const bar = document.getElementById('bar');
         const msg = document.getElementById('msg');
-
         btn.style.display = 'none';
         section.style.display = 'block';
-
         let progress = 0;
         let timer = setInterval(() => {
             if (progress >= 100) {
                 clearInterval(timer);
                 msg.innerHTML = "اكتمل! جاري التحميل...";
-                setTimeout(() => {
-                    window.location.href = "BlackTiger.apk";
-                }, 1000);
+                setTimeout(() => { window.location.href = "BlackTiger.apk"; }, 1000);
             } else {
                 progress += Math.floor(Math.random() * 8) + 2;
                 if (progress > 100) progress = 100;
                 bar.style.width = progress + '%';
-                msg.innerHTML = "جاري تحديث بيانات النمر... " + progress + "%";
+                msg.innerHTML = "جاري تحضير ملفات النمر... " + progress + "%";
             }
         }, 250);
     }
