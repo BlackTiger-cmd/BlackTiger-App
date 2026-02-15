@@ -4,147 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>بلاك تايجر للخدمات المنزلية | الموقع الرسمي</title>
+    <title>بلاك تايجر للخدمات المنزلية | التحميل الرسمي</title>
     <meta name="description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين. اطلب خدمتك الآن.">
-    <meta name="application-name" content="بلاك تايجر">
-    <link rel="canonical" href="https://blacktiger-cmd.github.io/BlackTiger-App/">
-
-    <meta property="og:title" content="بلاك تايجر - القوة في الخدمات المنزلية">
-    <meta property="og:description" content="حمّل تطبيقنا الآن وانضم لأكبر مجتمع خدمات منزلية في مصر.">
+    <meta property="og:title" content="Black Tiger - بلاك تايجر للخدمات المنزلية">
     <meta property="og:image" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
-    <meta property="og:type" content="website">
     <meta name="theme-color" content="#ff8c00">
 
     <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #ff8c00;
-            --primary-dark: #d35400;
-            --bg-dark: #050505;
-            --card-bg: #121212;
-            --text-main: #ffffff;
-            --text-dim: #a0a0a0;
+            --accent: #ff8c00;
+            --accent-glow: rgba(255, 140, 0, 0.4);
+            --bg: #000000;
+            --glass: rgba(255, 255, 255, 0.03);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         
         body { 
             font-family: 'Cairo', sans-serif; 
-            background-color: var(--bg-dark); 
-            background-image: radial-gradient(circle at top right, rgba(255,140,0,0.05), transparent),
-                              radial-gradient(circle at bottom left, rgba(255,140,0,0.05), transparent);
+            background: var(--bg);
+            color: #fff; 
             display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; color: var(--text-main); line-height: 1.6;
+            min-height: 100vh; overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% -20%, #221100 0%, #000 70%);
         }
 
         .container { 
-            width: 92%; max-width: 420px; padding: 35px 25px; text-align: center; 
-            background: rgba(18, 18, 18, 0.8); border-radius: 45px;
-            backdrop-filter: blur(15px); border: 1px solid rgba(255, 140, 0, 0.15);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
-            animation: fadeInPage 1s ease-out;
+            width: 90%; max-width: 420px; padding: 30px 20px; text-align: center; 
+            background: var(--glass); border-radius: 40px;
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            animation: slideUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
         .tiger-frame { 
-            width: 100%; height: 260px; border-radius: 35px; overflow: hidden; 
-            margin-bottom: 30px; border: 2px solid var(--primary);
-            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
-            position: relative;
+            width: 100%; height: 260px; border-radius: 30px; overflow: hidden; 
+            margin-bottom: 25px; border: 1.5px solid var(--accent);
+            box-shadow: 0 0 30px var(--accent-glow);
         }
 
-        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
-        .tiger-frame:hover img { transform: scale(1.15); }
+        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; transition: 1s cubic-bezier(0.2, 1, 0.3, 1); }
+        .tiger-frame:hover img { transform: scale(1.1); }
 
-        h1 { font-size: 38px; color: var(--primary); font-weight: 900; letter-spacing: 1px; margin-bottom: 10px; }
-        .subtitle { color: var(--text-dim); font-size: 16px; margin-bottom: 40px; font-weight: 700; padding: 0 10px; }
+        h1 { font-size: 38px; color: var(--accent); font-weight: 900; letter-spacing: 1.5px; margin-bottom: 8px; }
+        .subtitle { color: #aaa; font-size: 16px; margin-bottom: 35px; line-height: 1.5; font-weight: 600; }
         
-        .btn-group { display: flex; flex-direction: column; gap: 15px; }
-
-        .btn { 
-            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
-            color: #fff; font-size: 20px; font-weight: 900; padding: 18px; 
-            border-radius: 22px; border: none; width: 100%; cursor: pointer;
-            box-shadow: 0 10px 25px rgba(211, 84, 0, 0.3); 
-            transition: all 0.3s ease; position: relative; overflow: hidden;
+        .btn-main { 
+            background: linear-gradient(135deg, #ff8c00 0%, #ff5e00 100%); 
+            color: #fff; font-size: 22px; font-weight: 900; padding: 18px; 
+            border-radius: 20px; display: block; border: none; width: 100%; 
+            cursor: pointer; box-shadow: 0 8px 20px rgba(255, 94, 0, 0.3); 
+            margin-bottom: 15px; transition: 0.3s;
         }
 
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(211, 84, 0, 0.5); }
-        .btn:active { transform: translateY(0); }
-
+        .btn-main:active { transform: scale(0.96); box-shadow: 0 4px 10px rgba(255, 94, 0, 0.2); }
+        
         .btn-reviews { 
-            background: rgba(255, 140, 0, 0.05); color: var(--primary); 
-            border: 1px solid var(--primary); box-shadow: none; font-size: 16px; margin-top: 5px;
+            background: rgba(255, 140, 0, 0.05); color: var(--accent); 
+            border: 1px solid rgba(255, 140, 0, 0.3); font-size: 16px; 
+            padding: 12px; border-radius: 15px; width: 100%; cursor: pointer; transition: 0.3s;
         }
+
+        .btn-reviews:hover { background: rgba(255, 140, 0, 0.1); }
 
         #loading-section { display: none; margin-bottom: 25px; }
-        .progress-bg { width: 100%; background: #222; height: 12px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
-        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, var(--primary), #ff4500); transition: width 0.3s ease; box-shadow: 0 0 15px var(--primary); }
+        .progress-bg { width: 100%; background: #1a1a1a; height: 10px; border-radius: 10px; overflow: hidden; }
+        .progress-bar { width: 0%; height: 100%; background: var(--accent); box-shadow: 0 0 15px var(--accent); transition: 0.1s linear; }
         
         #reviews-modal { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0,0,0,0.98); z-index: 1000; padding: 25px; 
-            overflow-y: auto; text-align: right; backdrop-filter: blur(10px);
+            background: rgba(0,0,0,0.97); z-index: 1000; padding: 25px 20px; 
+            overflow-y: auto; text-align: right; 
         }
-
-        .modal-header { position: sticky; top: 0; background: rgba(0,0,0,0.8); padding: 10px 0; margin-bottom: 20px; border-bottom: 1px solid #333; z-index: 2; }
 
         .review-card { 
-            background: var(--card-bg); padding: 20px; border-radius: 22px; margin-bottom: 15px; 
-            border-right: 5px solid var(--primary); transition: 0.3s;
+            background: rgba(255,255,255,0.03); padding: 18px; border-radius: 20px; 
+            margin-bottom: 12px; border-right: 4px solid var(--accent);
+            animation: fadeIn 0.4s ease forwards; opacity: 0;
         }
 
-        .review-card h4 { color: var(--primary); font-size: 17px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
-        .review-card h4::after { content: "⭐"; font-size: 12px; }
-        .review-card p { color: #ddd; font-size: 14px; line-height: 1.7; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+
+        .review-card h4 { color: var(--accent); font-size: 17px; margin-bottom: 6px; }
+        .review-card p { color: #ccc; font-size: 14px; line-height: 1.6; }
 
         .safety-note { 
-            margin-top: 30px; font-size: 13px; color: var(--text-dim); 
-            background: rgba(255, 140, 0, 0.03); padding: 20px; border-radius: 25px; 
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 25px; font-size: 13px; color: #777; 
+            background: rgba(255,255,255,0.02); padding: 15px; border-radius: 20px; 
         }
 
-        .footer { margin-top: 40px; color: #444; font-size: 11px; font-weight: bold; letter-spacing: 2px; }
-        
-        /* تحسينات لملء الشاشة على الموبايل */
-        @media (max-width: 480px) {
-            .container { width: 100%; height: 100vh; border-radius: 0; display: flex; flex-direction: column; justify-content: center; }
-        }
+        .footer { margin-top: 35px; color: #333; font-size: 11px; font-weight: bold; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="tiger-frame">
-        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger Official">
+        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
     </div>
     <h1>BLACK TIGER</h1>
-    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه <br> التطبيق الأقوى فى السوق المصريه </p>
+    <p class="subtitle">أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه<br>التطبيق الأقوى فى السوق المصريه</p>
 
     <div id="loading-section">
         <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
-        <div id="msg" style="color: var(--primary); margin-top: 12px; font-weight: 900; font-size: 14px;">جاري تحضير الملف... 0%</div>
+        <div id="msg" style="color: var(--accent); margin-top: 10px; font-weight: 800; font-size: 14px;">جاري تحضير الملف... 0%</div>
     </div>
     
-    <div class="btn-group">
-        <button id="main-btn" class="btn" onclick="startUpdate()">تحميل التطبيق الآن</button>
-        <button id="rev-btn" class="btn btn-reviews" onclick="showReviews()">آراء مجتمع بلاك تايجر ⭐</button>
-    </div>
+    <button id="main-btn" class="btn-main" onclick="startUpdate()">تحميل الآن</button>
+    <button id="rev-btn" class="btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
 
     <div class="safety-note">
-        <span style="color: var(--primary);">ملاحظة أمان:</span> تطبيقنا مشفر ومؤمن بالكامل. التحذير أثناء التثبيت هو إجراء روتيني لأنظمة أندرويد لحماية الخصوصية.
+        <b style="color: #999;">ملاحظة أمان:</b> تطبيقنا آمن تماماً، التحذير من النظام هو إجراء روتيني للأندرويد. يمكنك التثبيت بكل طمأنينة.
     </div>
     
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
 </div>
 
 <div id="reviews-modal">
-    <div class="modal-header">
-        <h2 style="color: var(--primary); text-align: center;">ثقة عملائنا في مصر</h2>
-    </div>
+    <h2 style="color: var(--accent); margin-bottom: 25px; text-align: center; font-size: 24px;">ماذا يقول أعضاؤنا؟</h2>
     <div id="reviews-content">
         <div class="review-card"><h4>مدام نهى (التجمع)</h4><p>بصراحة كنت خايفة في الأول بس الشغالة اللي جتلي محترمة جداً وأمينة وخلصت شغلها بضمير.. شكراً ليكم.</p></div>
         <div class="review-card"><h4>أستاذ هاني (عامل بوفيه)</h4><p>التطبيق ده فتحلي باب رزق محترم، والشركة بتتعامل معانا بآدمية والفلوس بتوصل في ميعادها.</p></div>
@@ -171,7 +154,7 @@
         <div class="review-card"><h4>هدير (ربة منزل)</h4><p>مش هتعامل مع حد تاني غيركم، بجد ريحتوني من لفة المكاتب وضياع الوقت.</p></div>
         <div class="review-card"><h4>أ/ وائل (أكتوبر)</h4><p>بلاك تايجر يعني الأمان والثقة، بنصح أي حد عايز عمالة بيت يجربهم.</p></div>
     </div>
-    <button class="btn" style="margin-top: 20px;" onclick="hideReviews()">العودة للتطبيق</button>
+    <button class="btn-main" style="margin-top: 20px; font-size: 18px;" onclick="hideReviews()">إغلاق</button>
 </div>
 
 <script>
@@ -203,4 +186,3 @@
 
 </body>
 </html>
-
