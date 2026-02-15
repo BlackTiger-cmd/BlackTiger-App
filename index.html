@@ -4,132 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>بلاك تايجر للخدمات المنزلية | التحميل الرسمي</title>
-    <meta name="description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين.">
-    <meta property="og:title" content="Black Tiger App Official">
+    <title>بلاك تايجر | Black Tiger Official</title>
+    
+    <meta name="description" content="تطبيق بلاك تايجر للخدمات المنزلية - المنصة الأقوى في السوق المصرية">
     <meta property="og:image" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
     <meta name="theme-color" content="#000000">
 
-    <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #ff8c00;
-            --primary-glow: rgba(255, 140, 0, 0.4);
-            --bg: #000000;
-            --card-glass: rgba(255, 255, 255, 0.03);
+            --gold: #ff8c00;
+            --gold-glow: rgba(255, 140, 0, 0.4);
+            --surface: rgba(255, 255, 255, 0.03);
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; margin: 0; padding: 0; outline: none; }
         
         body { 
-            font-family: 'Cairo', sans-serif; background: var(--bg); color: #fff; 
+            font-family: 'Cairo', sans-serif; background: #000; color: #fff; 
             min-height: 100vh; display: flex; justify-content: center; align-items: center;
-            overflow-x: hidden;
+            overflow: hidden; position: relative;
         }
 
-        /* محرك الجزيئات في الخلفية */
-        #bg-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+        /* خلفية ديناميكية مشفرة */
+        .bg-glow {
+            position: absolute; width: 300px; height: 300px;
+            background: var(--gold); filter: blur(150px);
+            opacity: 0.1; border-radius: 50%; z-index: 0;
+            animation: pulse 8s infinite alternate;
+        }
+        @keyframes pulse { from { transform: translate(-50%, -50%) scale(1); } to { transform: translate(20%, 30%) scale(1.5); } }
 
-        .main-container { 
-            position: relative; width: 90%; max-width: 420px; padding: 35px 25px; text-align: center;
-            background: var(--card-glass); border-radius: 45px;
+        .wrapper { 
+            position: relative; z-index: 10; width: 92%; max-width: 420px; 
+            padding: 40px 25px; text-align: center;
+            background: var(--surface); border-radius: 40px;
             backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 140, 0, 0.15);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.7);
-            animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
         }
 
-        @keyframes fadeInScale { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-
-        /* فريم النمر بالحركة السينمائية */
-        .hero-image { 
-            width: 100%; height: 260px; border-radius: 35px; overflow: hidden; 
-            margin-bottom: 25px; border: 2px solid var(--primary);
-            box-shadow: 0 0 35px var(--primary-glow);
+        /* فريم النمر بتقنية العمق */
+        .tiger-visual { 
+            width: 100%; height: 260px; border-radius: 30px; overflow: hidden; 
+            margin-bottom: 30px; border: 2px solid var(--gold);
+            box-shadow: 0 0 40px var(--gold-glow);
         }
-
-        .hero-image img { 
+        .tiger-visual img { 
             width: 100%; height: 100%; object-fit: cover; 
-            animation: tigerMotion 12s infinite alternate ease-in-out;
+            transform: scale(1.1);
+            animation: tigerDeepMove 15s infinite ease-in-out;
+        }
+        @keyframes tigerDeepMove {
+            0% { transform: scale(1.1) translate(0,0); }
+            50% { transform: scale(1.25) translate(-10px, -5px); }
+            100% { transform: scale(1.1) translate(0,0); }
         }
 
-        @keyframes tigerMotion { 
-            0% { transform: scale(1); } 
-            100% { transform: scale(1.15) translate(5px, 5px); } 
-        }
+        h1 { font-size: 40px; font-weight: 900; color: var(--gold); margin-bottom: 10px; letter-spacing: -1px; }
+        .desc { color: #aaa; font-size: 16px; font-weight: 700; margin-bottom: 40px; line-height: 1.6; }
 
-        h1 { font-size: 38px; font-weight: 900; color: var(--primary); margin-bottom: 5px; text-shadow: 0 0 20px rgba(255,140,0,0.4); }
-        .tagline { color: #aaa; font-size: 16px; font-weight: 700; margin-bottom: 35px; line-height: 1.6; }
-
-        .btn-action { 
-            background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); 
+        /* الأزرار بأسلوب نيون المتقدم */
+        .main-btn { 
+            background: linear-gradient(135deg, #ff8c00 0%, #ff4500 100%); 
             color: #fff; font-size: 22px; font-weight: 900; padding: 20px; 
-            border-radius: 22px; border: none; width: 100%; cursor: pointer;
-            box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); 
-            margin-bottom: 15px; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 20px; border: none; width: 100%; cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 69, 0, 0.4); 
+            transition: 0.3s cubic-bezier(0.2, 1, 0.3, 1);
+            margin-bottom: 15px;
+        }
+        .main-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(255, 69, 0, 0.6); }
+
+        .rev-btn { 
+            background: transparent; color: var(--gold); border: 1.5px solid var(--gold);
+            font-size: 16px; font-weight: 700; padding: 12px; border-radius: 18px; width: 100%;
+            cursor: pointer; transition: 0.3s;
         }
 
-        .btn-action:active { transform: scale(0.96); }
+        #loading-box { display: none; margin: 30px 0; }
+        .progress-track { width: 100%; background: #111; height: 10px; border-radius: 10px; overflow: hidden; border: 1px solid #222; }
+        .progress-fill { width: 0%; height: 100%; background: var(--gold); box-shadow: 0 0 15px var(--gold); }
 
-        .btn-secondary { 
-            background: rgba(255, 140, 0, 0.05); color: var(--primary); 
-            border: 1px solid var(--primary); font-size: 16px; font-weight: 700;
-            padding: 12px; border-radius: 18px; width: 100%; cursor: pointer;
-        }
-
-        #loading-ui { display: none; margin: 25px 0; }
-        .bar-bg { width: 100%; background: #1a1a1a; height: 12px; border-radius: 10px; overflow: hidden; }
-        .bar-fill { width: 0%; height: 100%; background: var(--primary); box-shadow: 0 0 15px var(--primary); }
-
-        /* نافذة المراجعات الكاملة */
+        /* نافذة المراجعات (The Review Hub) */
         #reviews-modal { 
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
             background: rgba(0,0,0,0.98); z-index: 1000; padding: 30px 20px; overflow-y: auto; 
         }
-
         .review-card { 
-            background: rgba(255,255,255,0.03); padding: 20px; border-radius: 25px; 
-            margin-bottom: 15px; border-right: 5px solid var(--primary); text-align: right;
+            background: rgba(255,255,255,0.03); padding: 22px; border-radius: 25px; 
+            margin-bottom: 15px; border-right: 5px solid var(--gold);
+            animation: slideIn 0.5s ease backwards;
         }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
 
-        .review-card h4 { color: var(--primary); margin-bottom: 8px; font-size: 17px; }
+        .review-card h4 { color: var(--gold); margin-bottom: 8px; font-size: 17px; }
         .review-card p { color: #ccc; font-size: 14px; line-height: 1.7; }
 
-        .safety-note { margin-top: 30px; font-size: 13px; color: #666; padding: 15px; border-radius: 20px; background: rgba(255,255,255,0.02); }
-        .footer-text { margin-top: 35px; color: #333; font-size: 10px; font-weight: bold; letter-spacing: 2px; }
+        .safe-badge { margin-top: 30px; font-size: 13px; color: #666; padding: 15px; background: rgba(255,255,255,0.01); border-radius: 20px; }
+        .footer-tag { margin-top: 40px; font-size: 11px; color: #333; font-weight: bold; letter-spacing: 3px; }
     </style>
 </head>
 <body>
 
-<canvas id="bg-canvas"></canvas>
+<div class="bg-glow"></div>
 
-<div class="main-container">
-    <div class="hero-image">
-        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
+<div class="wrapper">
+    <div class="tiger-visual">
+        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger Official">
     </div>
     <h1>BLACK TIGER</h1>
-    <p class="tagline">أهلاً بك في تطبيق بلاك تايجر للخدمات المنزلية<br>التطبيق الأقوى في السوق المصرية</p>
+    <p class="desc">أهلاً بك في تطبيق بلاك تايجر للخدمات المنزلية<br>المنصة الأقوى في السوق المصرية</p>
 
-    <div id="loading-ui">
-        <div class="bar-bg"><div id="progress" class="bar-fill"></div></div>
-        <div id="status-text" style="color: var(--primary); margin-top: 15px; font-weight: 900;">جاري تحضير الملف... 0%</div>
+    <div id="loading-box">
+        <div class="progress-track"><div id="bar" class="progress-fill"></div></div>
+        <div id="status" style="color: var(--gold); margin-top: 15px; font-weight: 900; font-size: 14px;">جاري تحضير الملف... 0%</div>
     </div>
     
-    <button id="btn-dl" class="btn-action" onclick="startDownload()">تحميل الآن</button>
-    <button id="btn-rev" class="btn-secondary" onclick="openReviews()">آراء أعضاء بلاك تايجر ⭐</button>
+    <button id="btn-1" class="main-btn" onclick="initDL()">تحميل الآن</button>
+    <button id="btn-2" class="rev-btn" onclick="openModal()">آراء أعضاء بلاك تايجر ⭐</button>
 
-    <div class="safety-note">
-        <b>ملاحظة أمان:</b> تطبيقنا مشفر بالكامل. أي تحذير يظهر هو إجراء أمني روتيني من أندرويد لتطبيقات خارج المتجر.
+    <div class="safe-badge">
+        <b>D-Security:</b> تطبيق آمن ومعتمد. تحذير النظام هو إجراء تقني اعتيادي للتطبيقات الخارجية المستقلة.
     </div>
     
-    <div class="footer-text">OFFICIAL BLACK TIGER © 2026</div>
+    <div class="footer-tag">OFFICIAL BLACK TIGER © 2026</div>
 </div>
 
 <div id="reviews-modal">
-    <h2 style="color: var(--primary); text-align: center; margin-bottom: 30px;">ماذا يقول أعضاؤنا؟ (24 رأي)</h2>
-    <div id="reviews-container">
+    <h2 style="color: var(--gold); text-align: center; margin-bottom: 30px; font-size: 24px;">ماذا يقول أعضاؤنا؟ (24 مراجعة)</h2>
+    <div id="reviews-list">
         <div class="review-card"><h4>مدام نهى (التجمع)</h4><p>بصراحة كنت خايفة في الأول بس الشغالة اللي جتلي محترمة جداً وأمينة وخلصت شغلها بضمير.. شكراً ليكم.</p></div>
         <div class="review-card"><h4>أستاذ هاني (عامل بوفيه)</h4><p>التطبيق ده فتحلي باب رزق محترم، والشركة بتتعامل معانا بآدمية والفلوس بتوصل في ميعادها.</p></div>
         <div class="review-card"><h4>دكتورة إيمان</h4><p>البيبي سيتر "ولاء" ممتازة، بنتي حبتها جداً وده أهم حاجة عندي. خدمة 5 نجوم.</p></div>
@@ -155,54 +159,17 @@
         <div class="review-card"><h4>هدير (ربة منزل)</h4><p>مش هتعامل مع حد تاني غيركم، بجد ريحتوني من لفة المكاتب وضياع الوقت.</p></div>
         <div class="review-card"><h4>أ/ وائل (أكتوبر)</h4><p>بلاك تايجر يعني الأمان والثقة، بنصح أي حد عايز عمالة بيت يجربهم.</p></div>
     </div>
-    <button class="btn-action" style="margin-top: 20px;" onclick="closeReviews()">إغلاق</button>
+    <button class="main-btn" style="margin-top: 20px;" onclick="closeModal()">العودة للرئيسية</button>
 </div>
 
 <script>
-    // نظام الجزيئات (Particles System) - أعلى مستوى برمجي
-    const canvas = document.getElementById('bg-canvas');
-    const ctx = canvas.getContext('2d');
-    let pts = [];
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    function openModal() { document.getElementById('reviews-modal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+    function closeModal() { document.getElementById('reviews-modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
-    class Pt {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.vX = (Math.random() - 0.5) * 0.5;
-            this.vY = (Math.random() - 0.5) * 0.5;
-            this.s = Math.random() * 2;
-        }
-        draw() {
-            ctx.fillStyle = "rgba(255, 140, 0, 0.3)";
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2);
-            ctx.fill();
-        }
-        move() {
-            this.x += this.vX; this.y += this.vY;
-            if(this.x < 0 || this.x > canvas.width) this.vX *= -1;
-            if(this.y < 0 || this.y > canvas.height) this.vY *= -1;
-        }
-    }
-
-    function init() { for(let i=0; i<60; i++) pts.push(new Pt()); }
-    function anim() {
-        ctx.clearRect(0,0,canvas.width, canvas.height);
-        pts.forEach(p => { p.move(); p.draw(); });
-        requestAnimationFrame(anim);
-    }
-    init(); anim();
-
-    // أوامر الصفحة
-    function openReviews() { document.getElementById('reviews-modal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-    function closeReviews() { document.getElementById('reviews-modal').style.display = 'none'; document.body.style.overflow = 'auto'; }
-
-    function startDownload() {
-        document.getElementById('btn-dl').style.display = 'none';
-        document.getElementById('btn-rev').style.display = 'none';
-        document.getElementById('loading-ui').style.display = 'block';
+    function initDL() {
+        document.getElementById('btn-1').style.display = 'none';
+        document.getElementById('btn-2').style.display = 'none';
+        document.getElementById('loading-box').style.display = 'block';
         let p = 0;
         let t = setInterval(() => {
             if (p >= 100) {
@@ -210,8 +177,8 @@
                 window.location.href = "BlackTiger.apk";
             } else {
                 p += 5;
-                document.getElementById('progress').style.width = p + '%';
-                document.getElementById('status-text').innerText = "جاري تحضير الملف... " + p + "%";
+                document.getElementById('bar').style.width = p + '%';
+                document.getElementById('status').innerText = "جاري تحضير الملف... " + p + "%";
             }
         }, 120);
     }
