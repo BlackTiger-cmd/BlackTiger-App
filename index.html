@@ -48,7 +48,11 @@
         h1 { font-size: 36px; color: #ff8c00; font-weight: 900; margin-bottom: 5px; }
         .subtitle { color: #888; font-size: 17px; margin-bottom: 35px; font-weight: 700; }
         
-        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; }
+        .btn { background: linear-gradient(135deg, #ff8c00 0%, #d35400 100%); color: #fff; font-size: 22px; font-weight: 900; padding: 20px; border-radius: 20px; display: block; border: none; width: 100%; cursor: pointer; box-shadow: 0 12px 25px rgba(211, 84, 0, 0.4); margin-bottom: 15px; text-decoration: none; }
+        
+        /* زرار الفيديو المنسق */
+        .btn-video { background: #1a1a1a; color: #ff8c00; border: 2px solid #ff8c00; font-size: 20px; }
+        
         .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 25px; }
         
         #loading-section { display: none; margin-bottom: 25px; }
@@ -79,6 +83,11 @@
     </div>
     
     <button id="main-btn" class="btn" onclick="startUpdate()">تحميل الآن</button>
+
+    <a href="https://youtube.com/shorts/jveSOwc1v0Y?feature=share" target="_blank" id="video-btn" class="btn btn-video">
+        شرح طريقة التحميل (فيديو) 📺
+    </a>
+
     <button id="rev-btn" class="btn btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
 
     <div class="safety-note">
@@ -124,6 +133,7 @@
     function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
     function startUpdate() {
         document.getElementById('main-btn').style.display = 'none';
+        document.getElementById('video-btn').style.display = 'none';
         document.getElementById('rev-btn').style.display = 'none';
         document.getElementById('loading-section').style.display = 'block';
         let p = 0;
