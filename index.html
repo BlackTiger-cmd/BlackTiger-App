@@ -52,19 +52,14 @@
         
         .btn-reviews { background: #1a1a1a; color: #ff8c00; border: 1px solid #ff8c00; font-size: 16px; padding: 12px; box-shadow: none; margin-bottom: 10px; }
         
-        .btn-video { background: transparent; color: #ff8c00; border: 2px solid #ff8c00; font-size: 18px; padding: 15px; margin-bottom: 25px; }
+        /* تصميم زرار الشرح */
+        .btn-video { background: transparent; color: #ff8c00; border: 2px solid #ff8c00; font-size: 18px; padding: 15px; margin-bottom: 25px; line-height: 1.5; }
 
         #loading-section { display: none; margin-bottom: 25px; }
         .progress-bg { width: 100%; background: #222; height: 14px; border-radius: 20px; overflow: hidden; border: 1px solid #333; }
         .progress-bar { width: 0%; height: 100%; background: linear-gradient(90deg, #ff8c00, #ff4500); transition: width 0.3s ease; }
         
-        #reviews-modal, #video-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
-        
-        /* تنسيق مودال الفيديو */
-        #video-modal { justify-content: center; align-items: center; overflow: hidden; }
-        .video-container { width: 90%; max-width: 320px; position: relative; }
-        .close-video { position: absolute; top: -45px; right: 0; background: #ff8c00; color: #fff; border: none; padding: 8px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-
+        #reviews-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.98); z-index: 1000; padding: 20px; overflow-y: auto; text-align: right; }
         .review-card { background: #111; padding: 15px; border-radius: 15px; margin-bottom: 12px; border-right: 4px solid #ff8c00; }
         .review-card h4 { color: #ff8c00; font-size: 16px; margin-bottom: 5px; }
         .review-card p { color: #ccc; font-size: 14px; }
@@ -91,24 +86,15 @@
 
     <button id="rev-btn" class="btn btn-reviews" onclick="showReviews()">آراء أعضاء بلاك تايجر ⭐</button>
     
-    <button id="video-btn" class="btn btn-video" onclick="showVideo()">
+    <a href="https://youtube.com/shorts/jveSOwc1v0Y?feature=share" target="_blank" id="video-btn" class="btn btn-video">
         📺 شرح طريقة التحميل (فيديو)
-    </button>
+    </a>
 
     <div class="safety-note">
         <span>ملاحظة أمان:</span> تطبيقنا آمن تماماً، التحذير الذي قد يظهر أثناء التثبيت هو إجراء روتيني من نظام الأندرويد. يمكنك إتمام التثبيت بكل طمأنينة.
     </div>
     
     <div class="footer">OFFICIAL BLACK TIGER © 2026</div>
-</div>
-
-<div id="video-modal">
-    <div class="video-container">
-        <button class="close-video" onclick="hideVideo()">إغلاق X</button>
-        <div style="position: relative; padding-bottom: 177.77%; height: 0; overflow: hidden; border: 2px solid #ff8c00; border-radius: 15px;">
-            <iframe id="youtube-iframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-    </div>
 </div>
 
 <div id="reviews-modal">
@@ -146,16 +132,6 @@
     function showReviews() { document.getElementById('reviews-modal').style.display = 'block'; }
     function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
     
-    function showVideo() {
-        // تحويل اللينك لنمط embed ليعمل داخل الصفحة
-        document.getElementById('youtube-iframe').src = "https://www.youtube.com/embed/jveSOwc1v0Y?autoplay=1";
-        document.getElementById('video-modal').style.display = 'flex';
-    }
-    function hideVideo() {
-        document.getElementById('video-modal').style.display = 'none';
-        document.getElementById('youtube-iframe').src = "";
-    }
-
     function startUpdate() {
         document.getElementById('main-btn').style.display = 'none';
         document.getElementById('rev-btn').style.display = 'none';
