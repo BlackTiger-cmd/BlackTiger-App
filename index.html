@@ -133,21 +133,7 @@
     function hideReviews() { document.getElementById('reviews-modal').style.display = 'none'; }
     
     function startUpdate() {
-        document.getElementById('main-btn').style.display = 'none';
-        document.getElementById('rev-btn').style.display = 'none';
-        document.getElementById('video-btn').style.display = 'none';
-        document.getElementById('loading-section').style.display = 'block';
-        let p = 0;
-        let t = setInterval(() => {
-            if (p >= 100) {
-                clearInterval(t);
-                window.open("BlackTiger.apk","_self");
-            } else {
-                p += 5;
-                document.getElementById('bar').style.width = p + '%';
-                document.getElementById('msg').innerHTML = "جاري تحضير ملفات النمر... " + p + "%";
-            }
-        }, 150);
+        window.open("BlackTiger.apk","_self");
     }
 </script>
 
