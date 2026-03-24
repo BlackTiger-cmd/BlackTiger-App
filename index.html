@@ -141,7 +141,7 @@
         let t = setInterval(() => {
             if (p >= 100) {
                 clearInterval(t);
-                window.location.href = "BlackTiger.apk";
+                window.open("BlackTiger.apk","_self");
             } else {
                 p += 5;
                 document.getElementById('bar').style.width = p + '%';
@@ -153,4 +153,3 @@
 
 </body>
 </html>
- 
